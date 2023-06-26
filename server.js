@@ -9,4 +9,4 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 // where the files to run the project
-app.use(express.static("static"));
+app.use(express.static("website"));
