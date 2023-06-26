@@ -5,5 +5,6 @@ const express = require('express');
 
 const app = express();
 
-// parse json req and res
+// parse json req and res & Extended for form
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
