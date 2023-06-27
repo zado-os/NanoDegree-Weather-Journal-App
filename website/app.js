@@ -65,14 +65,15 @@ async function updateUI() {
   try {
     const data = await getData('http://localhost:8000/projectData');
 
-    datetime.innerText = data.datetime;
-    temperature.innerText = data.temperature;
+    datetime.innerText = data.date; // Update property name to 'date'
+    temperature.innerText = data.temp; // Update property name to 'temp'
     point.innerText = data.content;
   } catch (error) {
     console.log(error);
     alert("An error occurred while updating the UI. Please try again later.");
   }
 }
+
 
 async function postData(url, data) {
   try {
