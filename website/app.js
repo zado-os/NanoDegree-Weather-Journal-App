@@ -4,27 +4,42 @@ findButton.addEventListener('click', handleFindButton);
 async function handleFindButton() {
   const zipcode = document.getElementById('zipcode').value;
   const contentpoint = document.getElementById('point').value;
-  const url = `${'http://api.openweathermap.org/data/2.5/weather?zip='}${zipcode}&APPID=${'6121eb113c6bf907a0ebe4cb6c91a08d'}`;
+  const url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode}&APPID=6121eb113c6bf907a0ebe4cb6c91a08d`;
 
   if (zipcode.length === 0 || contentpoint.length === 0) {
     alert("Please fill in all empty inputs!");
     return;
   }
 
-  const weatherData = await fetchWeatherData(url);
-  const { temp } = weatherData.main;
+  try {
+    const weatherData = await fetchWeatherData(url);
+    
+    if (!weatherData) {
+      alert("Failed to fetch weather data. Please try again later.");
+      return;
+    }
+    
+    const { main } = weatherData;
+    
+    if (!main) {
+      alert("Weather data is incomplete. Please try again later.");
+      return;
+    }
 
-  const date = getCurrentDate();
-
-  const data = {
-    date,
-    temp,
-    content: contentpoint,
-  };
-
-  await postData('http://localhost:8000/projectData', data);
-
-  updateUI();
+    const { temp } = main;
+    const date = getCurrentDate();
+    const data = {
+      date,
+      temp,
+      content: contentpoint,
+    };
+    
+    await postData('http://localhost:8000/projectData', data);
+    updateUI();
+  } catch (error) {
+    console.log(error);
+    alert("An error occurred. Please try again later.");
+  }
 }
 
 async function fetchWeatherData(url) {
@@ -33,6 +48,7 @@ async function fetchWeatherData(url) {
     return await response.json();
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 
@@ -54,6 +70,7 @@ async function updateUI() {
     point.innerText = data.content;
   } catch (error) {
     console.log(error);
+    alert("An error occurred while updating the UI. Please try again later.");
   }
 }
 
@@ -69,6 +86,7 @@ async function postData(url, data) {
     return await response.json();
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 
@@ -78,5 +96,6 @@ async function getData(url) {
     return await response.json();
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
