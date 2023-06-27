@@ -6,21 +6,49 @@
     <title>Project: Weather Journal App</title>
 </head>
 <body>
-    <!-- inputs -->
-    <div class="startup">
-        <label for="zipcode"> Zip Code</label>
-        <input type="text" id="zipcode" placeholder="write your Zip Code">
-        <label for="point">the point</label>
-        <textarea name="point" id="point" cols="30" rows="10"></textarea>
-        <button id="find">Find</button>
-    </div>
-    <!-- end inputs -->
-    <!-- outputs -->
-    <div class="endless">
-        <p id="datetime"></p>
-        <p id="temperature"></p>
-        <p class="point"></p>
-    </div>
-    <!-- end outputs -->
+    <div id="app">
+        <!-- Header -->
+        <div class="header title">
+          Project: Weather Journal App
+        </div>
+      
+        <!-- Left Section -->
+        <div class="left-section">
+          <div class="card">
+            <!-- Zip Code Input -->
+            <div class="zip-holder">
+              <label for="zipcode">Zip Code</label>
+              <input type="text" id="zipcode" placeholder="Write your Zip Code">
+            </div>
+      
+            <!-- Feeling Input -->
+            <div class="point-holder">
+              <label for="point" class="point-title">How are you feeling today?</label>
+              <textarea class="point-input" id="point" placeholder="Enter your point here" rows="6" cols="50"></textarea>
+            </div>
+          </div>
+      
+          <!-- Find Button -->
+          <div class="center">
+            <button id="find" type="submit">Generate</button>
+          </div>
+        </div>
+      
+        <!-- Entry Section -->
+        <div class="entry-holder">
+          <div class="card2">
+            <!-- Most Recent Entry Title -->
+            <div class="entry-title">Most Recent Entry</div>
+      
+            <!-- Entry Holder -->
+            <div id="entryHolder">
+              <div id="datetime"></div>
+              <div id="temperature"></div>
+              <div id="point"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 </body>
 </html>
