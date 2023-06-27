@@ -8,49 +8,43 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Header -->
-        <div class="header title">
-          Project: Weather Journal App
+  <div id="app">
+    <header class="header">Weather App</header>
+    <section class="left-section">
+      <div class="card">
+        <div class="zip-holder">
+          <label for="zipcode">Enter ZIP code:</label>
+          <input type="text" id="zipcode" placeholder="enter zip code here" />
         </div>
-      
-        <!-- Left Section -->
-        <div class="left-section">
-          <div class="card">
-            <!-- Zip Code Input -->
-            <div class="zip-holder">
-              <label for="zipcode">Zip Code</label>
-              <input type="text" id="zipcode" placeholder="Write your Zip Code">
-            </div>
-      
-            <!-- Feeling Input -->
-            <div class="point-holder">
-              <label for="point" class="point-title">How are you feeling today?</label>
-              <textarea class="point-input" id="point" placeholder="Enter your point here" rows="6" cols="50"></textarea>
-            </div>
-          </div>
-      
-          <!-- Find Button -->
-          <div class="center">
-            <button id="find" type="submit">Generate</button>
-          </div>
+        <div class="point-holder">
+          <label for="point">What do you feel today:</label>
+          <textarea id="point" placeholder="enter your feeling today"></textarea>
         </div>
-      
-        <!-- Entry Section -->
-        <div class="entry-holder">
-          <div class="card2">
-            <!-- Most Recent Entry Title -->
-            <div class="entry-title">Most Recent Entry</div>
-      
-            <!-- Entry Holder -->
-            <div id="entryHolder">
-              <div id="datetime"></div>
-              <div id="temperature"></div>
-              <div id="point"></div>
-            </div>
+        <div class="center">
+          <button id="find">Find Weather</button>
+        </div>
+      </div>
+    </section>
+    <section class="entry-holder" style="display: none;">
+      <div class="card2">
+        <h2 class="entry-title">Weather Entry</h2>
+        <div id="entryHolder">
+          <div>
+            <strong>Date:</strong>
+            <span id="datetime"></span>
+          </div>
+          <div>
+            <strong>Temperature:</strong>
+            <span id="temperature"></span>
+          </div>
+          <div>
+            <strong>Content:</strong>
+            <span id="content"></span>
           </div>
         </div>
       </div>
+    </section>
+  </div>
       <!-- javascript -->
       <script src="./app.js"></script>
 </body>

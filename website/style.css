@@ -1,171 +1,171 @@
 /* Reset default styles */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  html,
-  body {
-    height: 100%;
-  }
-  
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #E5E5E5;
-  }
-  
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #e5e5e5;
+}
+
+#app {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "left-section"
+    "entry-holder";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.header {
+  grid-area: header;
+  font-size: 2em;
+  text-align: center;
+  padding: 1em;
+  background-color: #fff;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  color: #f23557;
+}
+
+.left-section {
+  grid-area: left-section;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+  padding: 1em;
+  max-width: 600px;
+  width: 100%;
+  min-height: 500px;
+}
+
+.zip-holder,
+.point-holder {
+  font-size: 1em;
+  padding: 1em 0.5em;
+}
+
+.zip-holder label,
+.point-holder label {
+  display: block;
+  font-size: 27px;
+  width: 80%;
+  margin: auto;
+}
+
+.zip-holder input,
+.point-holder textarea {
+  display: block;
+  color: #2d3547;
+  width: 80%;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 0.2em;
+  margin: auto;
+  margin-top: 0.5em;
+}
+
+.center {
+  text-align: center;
+}
+
+button {
+  background-color: #3b4a6b;
+  color: #f0d43a;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  box-shadow: 2px 4px 5px #444;
+  cursor: pointer;
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button:active {
+  box-shadow: 1px 2px 3px #444;
+}
+
+.entry-holder {
+  grid-area: entry-holder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.card2 {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+  padding: 1em;
+  width: 100%;
+}
+
+.entry-title {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#entryHolder {
+  font-size: 16px;
+}
+
+#entryHolder > div {
+  margin-bottom: 0.5em;
+}
+
+/* Basic Styling to Override Default for Basic HTML Elements */
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: lightgray;
+  font-family: 'Oswald', sans-serif;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: lightgray;
+  font-family: 'Oswald', sans-serif;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: lightgray;
+  font-family: 'Oswald', sans-serif;
+}
+
+@media (max-width: 768px) {
   #app {
-    display: grid;
     grid-template-areas:
       "header"
-      "left-section"
-      "entry-holder";
+      "col-right"
+      "col-left"
+      "footer";
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100%;
-    align-items: center;
-    justify-items: center;
   }
-  
-  .header {
-    grid-area: header;
-    font-size: 2em;
-    text-align: center;
-    padding: 1em;
-    background-color: #fff;
-    border-bottom: 1px solid lightgray;
-    width: 100%;
-    color: #f23557;
-  }
-  
-  .left-section {
-    grid-area: left-section;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    padding: 1em;
-  }
-  
-  .card {
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 8px;
-    padding: 1em;
-    max-width: 600px;
-    width: 100%;
-    min-height: 500px;
-  }
-  
-  .zip-holder,
-  .point-holder {
-    font-size: 1em;
-    padding: 1em 0.5em;
-  }
-  
-  .zip-holder label,
-  .point-holder label {
-    display: block;
-    font-size: 27px;
-    width: 80%;
-    margin: auto;
-  }
-  
-  .zip-holder input,
-  .point-holder textarea {
-    display: block;
-    color: #2d3547;
-    width: 80%;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: 1px solid lightgray;
-    border-radius: 8px;
-    padding: 0.2em;
-    margin: auto;
-    margin-top: 0.5em;
-  }
-  
-  .center {
-    text-align: center;
-  }
-  
-  button {
-    background-color: #3b4a6b;
-    color: #f0d43a;
-    font-size: 14px;
-    padding: 6px 16px;
-    border-radius: 25px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-    cursor: pointer;
-    width: 150px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  button:active {
-    box-shadow: 1px 2px 3px #444;
-  }
-  
-  .entry-holder {
-    grid-area: entry-holder;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1em;
-  }
-  
-  .card2 {
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 8px;
-    padding: 1em;
-    width: 100%;
-  }
-  
-  .entry-title {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  
-  #entryHolder {
-    font-size: 16px;
-  }
-  
-  #entryHolder > div {
-    margin-bottom: 0.5em;
-  }
-  
-  /* Basic Styling to Override Default for Basic HTML Elements */
-  ::placeholder {
-    /* Firefox, Chrome, Opera */
-    color: lightgray;
-    font-family: 'Oswald', sans-serif;
-  }
-  
-  :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: lightgray;
-    font-family: 'Oswald', sans-serif;
-  }
-  
-  ::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: lightgray;
-    font-family: 'Oswald', sans-serif;
-  }
-  @media (max-width: 768px){
-    #app{
-        grid-template-areas:"header"
-                            "col-right"
-                            "col-left "
-                            "footer";
-        grid-template-columns: 1fr;
-        /* grid-template-rows: 60px auto auto 50px; */
-    }
-
-}  
+}
